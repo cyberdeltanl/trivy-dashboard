@@ -1,0 +1,21 @@
+name: "htmlreport"
+repository: "local"
+version: "0.1.0"
+summary: Interactive, self-contained HTML reports from Trivy JSON and SBOMs
+usage: |-
+  trivy htmlreport <trivy command and flags> --report-flags -o report.html [--title T] [--enrich]
+  trivy htmlreport generate -o report.html [--enrich] scan.json [more.json ...]
+  trivy <command> -f json --output plugin=htmlreport --output-plugin-arg "-o report.html"
+description: |-
+  Renders Trivy results (k8s, image, fs, repo JSON, CycloneDX and SPDX) as one HTML file:
+  worst images, unique CVEs with the images they affect, misconfigurations, secrets,
+  licenses, packages, and optional EPSS and CISA KEV data. Requires Node.js 18+.
+platforms:
+  - selector:
+      os: linux
+    uri: ./htmlreport.tar.gz
+    bin: ./htmlreport.sh
+  - selector:
+      os: darwin
+    uri: ./htmlreport.tar.gz
+    bin: ./htmlreport.sh

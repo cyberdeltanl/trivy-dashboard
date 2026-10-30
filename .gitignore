@@ -1,0 +1,8 @@
+# Generated reports list your vulnerabilities and workloads - keep them out of the repo
+reports/
+*.part
+
+# Scan output
+*.json
+
+node_modules/
